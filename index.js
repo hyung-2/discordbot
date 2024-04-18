@@ -27,7 +27,6 @@ client.on('messageCreate', async message => {
               components:[
                 new ActionRowBuilder({
                   components: [
-                      
                     new ButtonBuilder()
                       .setCustomId('yes')
                       .setLabel('가능')
@@ -40,7 +39,7 @@ client.on('messageCreate', async message => {
                 })
               ]
             }).then(sentMessage => {
-              //버튼 클릭 대기(24시간)
+              //버튼 클릭 대기
               const collector = sentMessage.createMessageComponentCollector({ filter: i => i.user.id === user.id, time: 24 * 60 * 60 * 1000})
   
               collector.on('collect', async interaction => {
